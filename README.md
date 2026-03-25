@@ -19,12 +19,6 @@
 ## Sobre o Projeto
 
 O **PetStay** é o backend de uma solução completa para estabelecimentos de **Daycare e Hotelaria Pet**. O sistema gerencia tutores, pets, reservas, check-in/check-out e comunicação entre monitores e clientes.
-
-O projeto foi concebido com foco em:
-- **Boas práticas de Orientação a Objetos** (encapsulamento, composição e abstração)
-- **Segurança robusta** com autenticação multi-perfil via JWT
-- **Escalabilidade** com arquitetura desacoplada por camadas
-
 > Este repositório contém exclusivamente o **backend (API REST)**. A interface de usuário está fora do escopo deste projeto.
 
 ---
@@ -33,12 +27,11 @@ O projeto foi concebido com foco em:
 
 1. [Tecnologias](#-tecnologias)
 2. [Requisitos do Sistema](#-requisitos-do-sistema)
-3. [Arquitetura e Princípios OO](#-arquitetura-e-princípios-oo)
-4. [Perfis de Acesso e Jornadas](#-perfis-de-acesso-e-jornadas)
-5. [Fluxo de Autenticação](#-fluxo-de-autenticação)
-6. [Modelagem de Dados](#-modelagem-de-dados)
-7. [Endpoints da API](#-endpoints-da-api)
-8. [Como Executar](#-como-executar)
+3. [Perfis de Acesso e Jornadas](#-perfis-de-acesso-e-jornadas)
+4. [Fluxo de Autenticação](#-fluxo-de-autenticação)
+5. [Modelagem de Dados](#-modelagem-de-dados)
+6. [Endpoints da API](#-endpoints-da-api)
+7. [Como Executar](#-como-executar)
 
 ---
 
@@ -83,21 +76,6 @@ O projeto foi concebido com foco em:
 | RF08 | **Fluxo de Estadia:** Check-in e check-out realizados pelo monitor |
 | RF09 | **Diário de Bordo:** Registro individual de alimentação, atividades e recados por pet |
 | RF10 | **Mural de Avisos:** Publicação de comunicados gerais pelo administrador |
-
----
-
-## Arquitetura e Princípios OO
-
-A aplicação segue uma **arquitetura em camadas** (Controller → Service → Repository) e aplica os pilares da Orientação a Objetos:
-
-**Encapsulamento**
-Entidades com atributos privados. Nenhum dado é exposto diretamente — toda comunicação externa ocorre via **DTOs**, protegendo a camada de domínio.
-
-**Composição**
-O objeto `DailyLog` (Diário de Bordo) só existe vinculado a um `Booking` (Reserva). Não há diário sem estadia ativa — a composição garante essa regra de negócio estruturalmente.
-
-**Abstração**
-Os serviços são definidos por **interfaces**, desacoplando a lógica de negócio dos controladores. Isso facilita testes unitários e futuras substituições de implementação.
 
 ---
 
