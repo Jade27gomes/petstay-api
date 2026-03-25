@@ -1,4 +1,4 @@
-package com.petstay.petstay_api;
+package com.petstay;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

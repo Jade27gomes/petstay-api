@@ -1,4 +1,4 @@
-package com.petstay.petstay_api;
+package com.petstay;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
