@@ -78,3 +78,8 @@ pipfile.lock
 
 # Shellcheck temporary files
 *.shellcheck
+# Maven build output
+target/
+*.jar
+*.war
+*.ear
