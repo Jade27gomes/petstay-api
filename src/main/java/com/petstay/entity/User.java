@@ -35,11 +35,27 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private Role role;
 
-    
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
+        if (this.role == Role.ADMIN) {
+            return List.of(
+                new SimpleGrantedAuthority("ROLE_ADMIN"),
+                new SimpleGrantedAuthority("ROLE_USER"),
+                new SimpleGrantedAuthority("ROLE_MONITOR")
+            );
+        } else if (this.role == Role.MONITOR) {
+            return List.of(new SimpleGrantedAuthority("ROLE_MONITOR"));
+        } else {
+            return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        }
     }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+    
     @Override public String getUsername() { return email; }
     @Override public boolean isAccountNonExpired() { return true; }
     @Override public boolean isAccountNonLocked() { return true; }
